@@ -1,0 +1,48 @@
+{%  extends "index.html" %}
+{% load staticfiles %}
+{% block content %}
+    <!--=====================
+          Content
+======================-->
+    {% if event_detail %}
+        {% for event_list in event_detail %}
+        <section id="content">
+        <div class="container_12">
+            <center>
+            <div style="width: 50%; height: 50%;">
+        <div class="hovereffect">
+            {% if event_list.EventImage %}
+            <img class="img-responsive" style="object-fit: fill;" src="/media/{{ event_list.EventImage }}" alt="Image Not Found" />
+        {% endif %}
+
+            <div class="overlay">
+                <h2>{{ event_list.EventName }}</h2>
+                <a class="info" href="#">Date :{{ event_list.EventDate }}<br>Venue: {{ event_list.EventVenue }}<br>Organized by:{{ event_list.EventOrganiser }}<br>Show Category:{{ event_list.ShowCategory }}<br> Show Contact:{{ event_list.EventContact }}</a>
+            </div>
+        </div>
+            </div>
+            </center>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/>
+
+
+
+        {% endfor %}
+    {% endif %}
+    <div class="pagination">
+            <span class="step-links">
+                {% if event_detail.has_previous %}
+                    <a href="?page={{ event_detail.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ event_detail.number }} of {{ event_detail.paginator.num_pages }}.
+                </span>
+
+                {% if event_detail.has_next %}
+                    <a href="?page={{ event_detail.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+</div>
+</section>
+{% endblock %}

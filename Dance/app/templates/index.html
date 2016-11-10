@@ -1,0 +1,149 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chithkala</title>
+    <meta charset="utf-8">
+    <meta name = "format-detection" content = "telephone=no" />
+    <link rel="icon" href="static/images/favicon.ico">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="/media/chithkala_logo.png "/>
+    <link rel="stylesheet" href="{% static "css/touchTouch.css"%}">
+    <link rel="stylesheet" href="{% static "css/camera.css"%}">
+    <link rel="stylesheet" href="{% static "css/style.css"%}">
+    <link rel="stylesheet" href="{% static "css/mystyle.css"%}">
+    <link rel="stylesheet" href="{% static "css/details.css"%}">
+    <link rel="stylesheet" href="{% static "css/front.css" %}">
+
+    <script src="{% static "js/jquery.js"%}"></script>
+    <script src="{% static "js/jquery-migrate-1.1.1.js"%}"></script>
+    <script src="{% static "js/jquery.easing.1.3.js"%}"></script>
+    <script src="{% static "js/script.js"%}"></script>
+    <script src="{% static "js/superfish.js"%}"></script>
+    <script src="{% static "js/jquery.equalheights.js"%}"></script>
+    <script src="{% static "js/jquery.mobilemenu.js"%}"></script>
+    <script src="{% static "js/tmStickUp.js"%}"></script>
+    <script src="{% static "js/jquery.ui.totop.js"%}"></script>
+    <script src="{% static "js/touchTouch.jquery.js"%}"></script>
+    <script src="{% static "js/camera.js"%}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById('myDIV');
+            if (x.style.visibility === 'hidden') {
+                x.style.visibility = 'visible';
+            } else {
+                x.style.visibility = 'hidden';
+            }
+        }
+    </script>
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <script src="{% static "js/jquery.mobile.customized.min.js"%}"></script>
+    <!--<![endif]-->
+    <script>
+        $(window).load(function(){
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            $('#camera_wrap').camera({
+                loader: false,
+                pagination: false ,
+                minHeight: '400',
+                thumbnails: true,
+                height: '46.32478632478632%',
+                caption: false,
+                navigation: false,
+                fx: 'mosaic'
+            });
+            $('.gallery .gall_item').touchTouch();
+        });
+        $(window).load(function(){
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <!--[if lt IE 8]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<![endif]-->
+    <!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js"%}"></script>
+<link rel="stylesheet" media="screen" href="{% static "css/ie.css"%}">
+<![endif]-->
+</head>
+<body class="page1" id="top">
+<!--==============================
+              header
+=================================-->
+<div class="main">
+    <header>
+        <div class="container_12">
+            <div class="grid_12">
+                <h1 class="logo">
+                    <a href="/">MOVE<span>your dance school</span></a>
+                </h1>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <section id="stuck_container">
+            <!--==============================
+                        Stuck menu
+            =================================-->
+            <div class="container_12">
+                <div class="grid_12">
+                    <div class="navigation ">
+                        <nav>
+                            <ul class="sf-menu">
+                                <li class="current"><a href="/">Home</a></li>
+                                <li><a href="/upcoming/">Up Coming Events</a></li>
+                                <li><a href="/recent/">Recent Events</a></li>
+                                <li><a href="/profile/">Profile</a></li>
+                            </ul>
+                        </nav>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!--=====================
+              Content
+    ======================-->
+    <div class="container_12">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <div class="footer-top">
+        <div class="container_12">
+            <div class="grid_12">
+                <div class="sep-1"></div>
+            </div>
+            <div class="grid_4">
+                <address class="address-1"> <div class="fa fa-home"></div>‘Chithkala School of Dance’<br/>
+13/21, Sri Ranga,
+Uttaradhimutt Road, Shankarpuram,
+Bangalore 560 004 </address>
+            </div>
+            <div class="grid_3">
+                <a href="#" class="mail-1"><span class="fa fa-envelope"></span>info@demolink.org</a>
+            </div>
+            <div class="grid_4 fright">
+                <div class="socials">
+                    <a href="#">facebook</a>
+                    <a href="#">twitter</a>
+                    <a href="#">google+</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--==============================
+                  footer
+    =================================-->
+</div>
+<a href="#" id="toTop" class="fa fa-angle-up"></a>
+</body>
+</html>
