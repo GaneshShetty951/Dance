@@ -3,9 +3,11 @@ from time import timezone
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from django.shortcuts import render
-
+from serializers import  EventSerializer
 
 # Create your views here.
+from rest_framework import viewsets
+
 from app.models import UpComingEvents
 
 
@@ -48,3 +50,7 @@ def recent_page(request):
     except EmptyPage:
         event_detail = paginator.page(paginator.num_pages)
     return render(request, 'recent.html', {"event_detail":event_detail})
+
+class EventViewSet(viewsets.ModelViewSet):
+    queryset=UpComingEvents.objects.all()
+    serializer_class = EventSerializer

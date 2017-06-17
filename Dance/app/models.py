@@ -14,5 +14,8 @@ class UpComingEvents(models.Model):
     EventContact = models.CharField(max_length=10, validators=[phone_regex], blank=True) # validators should be a list
     EventLink = models.URLField(default='http://127.0.0.1:8000/')
 
+    def __str__(self):
+        return '%s'% self.EventDate
+
 class Awards(models.Model):
     Award_Name=models.CharField(max_length=100)
